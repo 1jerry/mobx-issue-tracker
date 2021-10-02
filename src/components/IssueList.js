@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { useObserver } from "mobx-react-lite";
+import { observer } from "mobx-react-lite";
 import IssueContext from "../stores/IssueContext";
 
-const IssueList = () => {
+const IssueList = observer(() => {
   const store = useContext(IssueContext);
 
-  return useObserver(() => (
+  return (
     <div className="container">
       <h3>Create Issues</h3>
       {store.issues.map((issue) => (
-        <div className="row">
+        <div className="row" key={issue.key}>
           <div className="cell">
             <strong>Issue: </strong> {issue.label}
           </div>
@@ -30,7 +30,7 @@ const IssueList = () => {
         </strong>
       </div>
     </div>
-  ));
-};
+  );
+});
 
 export default IssueList;

@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 import { useLocalObservable } from "mobx-react-lite";
 import IssueContext from "./IssueContext";
 
@@ -6,7 +7,7 @@ const IssueStore = ({ children }) => {
   const issueStore = useLocalObservable(() => ({
     issues: [],
     addIssue: (issue) => {
-      issueStore.issues.push(issue);
+      issueStore.issues.push({ ...issue, key: nanoid() });
     },
     removeIssue: (issue) => {
       issueStore.issues = issueStore.issues.filter((i) => i !== issue);

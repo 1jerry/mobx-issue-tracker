@@ -24,37 +24,43 @@ const IssueForm = () => {
     <div className="container">
       <h3>Create Issue</h3>
       <div>
-        <label for="issue-label">Label: </label>
-        <input
-          id="issue-label"
-          type="text"
-          value={issue.label}
-          onChange={(event) => handleUpdate("label", event.target.value)}
-        />
+        <label>
+          Label:
+          <input
+            id="issue-label"
+            type="text"
+            value={issue.label}
+            onChange={(event) => handleUpdate("label", event.target.value)}
+          />
+        </label>
       </div>
       <div>
-        <label for="issue-status">Status: </label>
-        <select
-          id="issue-status"
-          value={issue.status}
-          onChange={(event) => handleUpdate("status", event.target.value)}
-        >
-          <option value="New">New</option>
-          <option value="In Progress">In Progress</option>
-          <option value="Done">Done</option>
-        </select>
+        <label>
+          Status:
+          <select
+            id="issue-status"
+            value={issue.status}
+            onChange={(event) => handleUpdate("status", event.target.value)}
+          >
+            <option value="New">New</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+          </select>
+        </label>
       </div>
       <div>
-        <label for="issue-priority">Priority: </label>
-        <select
-          id="issue-priority"
-          value={issue.priority}
-          onChange={(event) => handleUpdate("priority", event.target.value)}
-        >
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
+        <label>
+          Priority:
+          <select
+            id="issue-priority"
+            value={issue.priority}
+            onChange={(event) => handleUpdate("priority", event.target.value)}
+          >
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </label>
       </div>
       <button onClick={handleCreate}>Create</button>
     </div>
